@@ -95,3 +95,30 @@ display:none;
 </button>
 
 <div id="storyResult"></div>
+
+<script>
+<script>
+function createStory() {
+  var name = document.getElementById("childName").value;
+  var language = document.getElementById("language").value;
+  var type = document.getElementById("storyType").value;
+
+  if (name == "") {
+    alert("Please enter child name");
+    return;
+  }
+
+  var story = "";
+
+  if (language == "Odia") {
+    story = "🌈 ଥରେ " + name + " ନାମର ଜଣେ ସାହସୀ ପିଲା ଥିଲା। ଦିନେ ସେ ଜଙ୍ଗଲରେ ଗୋଟିଏ ଯାଦୁଇ ଖରଗୋଶକୁ ଦେଖିଲା। ଖରଗୋଶଟି " + name + " କୁ ଗୋଟିଏ ଇଚ୍ଛା ମାଗିବାକୁ କହିଲା। " + name + " ସମସ୍ତଙ୍କ ସୁଖ କାମନା କଲା। ✨ ସମାପ୍ତ।";
+  } else if (language == "Hindi") {
+    story = "🌈 एक बार " + name + " नाम का एक बहादुर बच्चा था। एक दिन उसे जंगल में एक जादुई खरगोश मिला। खरगोश ने एक इच्छा माँगने को कहा। " + name + " ने सबकी खुशी माँगी। ✨ समाप्त।";
+  } else {
+    story = "🌈 Once upon a time, " + name + " was a brave child. One day " + name + " met a magical rabbit in the forest. The rabbit granted one wish, and " + name + " wished happiness for everyone. ✨ The End.";
+  }
+
+  document.getElementById("storyResult").style.display = "block";
+  document.getElementById("storyResult").innerHTML = story;
+}
+</script>

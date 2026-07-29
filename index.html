@@ -6,10 +6,16 @@
 <title>Tiny AI Tales</title>
 
 <style>
-body{
-font-family:Arial,sans-serif;
-background:#f5f8ff;
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#6a11cb,#2575fc);
 padding:20px;
 }
 
@@ -17,33 +23,36 @@ padding:20px;
 max-width:700px;
 margin:auto;
 background:#fff;
-padding:20px;
-border-radius:15px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+border-radius:20px;
+padding:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
 h1{
 text-align:center;
-color:#6a1b9a;
+color:#6a11cb;
+margin-bottom:20px;
 }
 
-p{
+label{
 font-weight:bold;
+display:block;
 margin-top:15px;
+margin-bottom:6px;
 }
 
 input,select{
 width:100%;
 padding:12px;
-border-radius:8px;
+border-radius:10px;
 border:1px solid #ccc;
 font-size:16px;
 }
 
 button{
-margin-top:20px;
 width:100%;
 padding:14px;
+margin-top:20px;
 background:#ff9800;
 color:white;
 border:none;
@@ -57,12 +66,25 @@ background:#f57c00;
 }
 
 #storyResult{
-margin-top:20px;
-padding:15px;
-background:#eef8ff;
-border-radius:10px;
 display:none;
+margin-top:20px;
+background:#eef7ff;
+padding:18px;
+border-radius:12px;
+line-height:1.7;
+font-size:17px;
 }
+
+.copyBtn{
+background:#4CAF50;
+margin-top:10px;
+}
+
+.downloadBtn{
+background:#2196F3;
+margin-top:10px;
+}
+
 </style>
 </head>
 
@@ -72,22 +94,23 @@ display:none;
 
 <h1>✨ Tiny AI Tales ✨</h1>
 
-<p>Child Name</p>
+<label>👶 Child Name</label>
 <input type="text" id="childName" placeholder="Enter Child Name">
 
-<p>Select Language</p>
+<label>🌍 Language</label>
 <select id="language">
 <option>English</option>
 <option>Odia</option>
 <option>Hindi</option>
 </select>
 
-<p>Story Type</p>
+<label>📚 Story Type</label>
 <select id="storyType">
 <option>Moral Story</option>
 <option>Adventure Story</option>
 <option>Animal Story</option>
 <option>Birthday Story</option>
+<option>Bedtime Story</option>
 </select>
 
 <button onclick="createStory()">
@@ -95,30 +118,86 @@ display:none;
 </button>
 
 <div id="storyResult"></div>
+<button class="copyBtn" onclick="copyStory()">
+📋 Copy Story
+</button>
+
+<button class="downloadBtn" onclick="downloadStory()">
+📥 Download Story
+</button>
 
 <script>
-<script>
-function createStory() {
-  var name = document.getElementById("childName").value;
-  var language = document.getElementById("language").value;
-  var type = document.getElementById("storyType").value;
 
-  if (name == "") {
-    alert("Please enter child name");
-    return;
-  }
+function createStory(){
 
-  var story = "";
+var name=document.getElementById("childName").value;
+var lang=document.getElementById("language").value;
+var type=document.getElementById("storyType").value;
 
-  if (language == "Odia") {
-    story = "🌈 ଥରେ " + name + " ନାମର ଜଣେ ସାହସୀ ପିଲା ଥିଲା। ଦିନେ ସେ ଜଙ୍ଗଲରେ ଗୋଟିଏ ଯାଦୁଇ ଖରଗୋଶକୁ ଦେଖିଲା। ଖରଗୋଶଟି " + name + " କୁ ଗୋଟିଏ ଇଚ୍ଛା ମାଗିବାକୁ କହିଲା। " + name + " ସମସ୍ତଙ୍କ ସୁଖ କାମନା କଲା। ✨ ସମାପ୍ତ।";
-  } else if (language == "Hindi") {
-    story = "🌈 एक बार " + name + " नाम का एक बहादुर बच्चा था। एक दिन उसे जंगल में एक जादुई खरगोश मिला। खरगोश ने एक इच्छा माँगने को कहा। " + name + " ने सबकी खुशी माँगी। ✨ समाप्त।";
-  } else {
-    story = "🌈 Once upon a time, " + name + " was a brave child. One day " + name + " met a magical rabbit in the forest. The rabbit granted one wish, and " + name + " wished happiness for everyone. ✨ The End.";
-  }
-
-  document.getElementById("storyResult").style.display = "block";
-  document.getElementById("storyResult").innerHTML = story;
+if(name==""){
+alert("Please enter child name");
+return;
 }
+
+var story="";
+
+if(lang=="English"){
+
+story="🌈 Once upon a time, "+name+" was a kind and brave child. One magical day, "+name+" found a glowing rabbit in the forest. The rabbit smiled and said, 'Your kindness makes the world brighter.' From that day, "+name+" always helped everyone and lived happily ever after. ✨";
+
+}
+
+else if(lang=="Odia"){
+
+story="🌈 ଥରେ "+name+" ନାମର ଜଣେ ସାହସୀ ପିଲା ଥିଲା। ଦିନେ ସେ ଜଙ୍ଗଲରେ ଗୋଟିଏ ଯାଦୁଇ ଖରଗୋଶକୁ ଦେଖିଲା। ଖରଗୋଶଟି କହିଲା, 'ତୁମର ଭଲପାଇବା ସମସ୍ତଙ୍କୁ ଖୁସି ଦେଉଛି।' ସେହିଦିନଠାରୁ "+name+" ସମସ୍ତଙ୍କୁ ସାହାଯ୍ୟ କରି ଖୁସିରେ ରହିଲା। ✨";
+
+}
+
+else{
+
+story="🌈 एक बार "+name+" नाम का एक बहादुर बच्चा था। एक दिन उसे जंगल में एक जादुई खरगोश मिला। खरगोश ने कहा, 'तुम्हारी अच्छाई सबसे बड़ी ताकत है।' इसके बाद "+name+" हमेशा सबकी मदद करता रहा। ✨";
+
+}
+
+document.getElementById("storyResult").style.display="block";
+document.getElementById("storyResult").innerHTML=story;
+
+}
+  function copyStory(){
+
+var text=document.getElementById("storyResult").innerText;
+
+navigator.clipboard.writeText(text);
+
+alert("Story Copied Successfully!");
+
+}
+
+function downloadStory(){
+
+var text=document.getElementById("storyResult").innerText;
+
+if(text==""){
+alert("Generate a story first!");
+return;
+}
+
+var blob=new Blob([text],{type:"text/plain"});
+
+var link=document.createElement("a");
+
+link.href=URL.createObjectURL(blob);
+
+link.download="Tiny_AI_Story.txt";
+
+link.click();
+
+}
+
 </script>
+
+</div>
+
+</body>
+
+</html>

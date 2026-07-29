@@ -14,7 +14,65 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
-body{
+body{<!-- Name Popup -->
+<div id="namePopup" class="popup">
+  <div class="popup-box">
+    <h2>📖 Welcome to Tiny Moral Tales</h2>
+    <p>Enter Your Name</p>
+    <input type="text" id="userName" placeholder="Your Name">
+    <button onclick="saveName()">Start Story</button>
+  </div>
+</div>
+
+<script>
+function saveName(){
+  let name = document.getElementById("userName").value;
+
+  if(name == ""){
+    alert("Please enter your name");
+  }
+  else{
+    localStorage.setItem("visitorName", name);
+    document.getElementById("namePopup").style.display="none";
+    alert("Welcome " + name + " 😊");
+  }
+}
+</script>
+
+<style>
+.popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.popup-box{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+}
+
+.popup-box input{
+  padding:10px;
+  width:80%;
+  margin:10px;
+}
+
+.popup-box button{
+  padding:10px 20px;
+  border:none;
+  border-radius:10px;
+  background:#ff7b00;
+  color:white;
+}
+</style>
 background:linear-gradient(135deg,#6a11cb,#2575fc);
 padding:20px;
 }

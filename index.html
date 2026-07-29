@@ -1,283 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tiny AI Tales</title>
+<title>Tiny Moral Tales</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-
-<script>
-function saveName(){
-  let name = document.getElementById("userName").value;
-
-  if(name == ""){
-    alert("Please enter your name");
-  }
-  else{
-    localStorage.setItem("visitorName", name);
-    document.getElementById("namePopup").style.display="none";
-    alert("Welcome " + name + " 😊");
-  }
+  font-family: Arial;
+  text-align:center;
+  background:#f5f5f5;
 }
-</script>
 
-<style>
 .popup{
   position:fixed;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.5);
   display:flex;
   justify-content:center;
   align-items:center;
 }
 
-.popup-box{
+.box{
   background:white;
   padding:25px;
   border-radius:15px;
-  text-align:center;
 }
 
-.popup-box input{
+input{
   padding:10px;
-  width:80%;
-  margin:10px;
-}
-
-.popup-box button{
-  padding:10px 20px;
-  border:none;
-  border-radius:10px;
-  background:#ff7b00;
-  color:white;
-}
-</style>
-background:linear-gradient(135deg,#6a11cb,#2575fc);
-padding:20px;
-}
-
-.container{
-max-width:700px;
-margin:auto;
-background:#fff;
-border-radius:20px;
-padding:25px;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-}
-
-h1{
-text-align:center;
-color:#6a11cb;
-margin-bottom:20px;
-}
-
-label{
-font-weight:bold;
-display:block;
-margin-top:15px;
-margin-bottom:6px;
-}
-
-input,select{
-width:100%;
-padding:12px;
-border-radius:10px;
-border:1px solid #ccc;
-font-size:16px;
 }
 
 button{
-width:100%;
-padding:14px;
-margin-top:20px;
-background:#ff9800;
-color:white;
-border:none;
-border-radius:10px;
-font-size:18px;
-cursor:pointer;
+  padding:10px 20px;
+  margin-top:10px;
 }
-
-button:hover{
-background:#f57c00;
-}
-
-#storyResult{
-display:none;
-margin-top:20px;
-background:#eef7ff;
-padding:18px;
-border-radius:12px;
-line-height:1.7;
-font-size:17px;
-}
-
-.copyBtn{
-background:#4CAF50;
-margin-top:10px;
-}
-
-.downloadBtn{
-background:#2196F3;
-margin-top:10px;
-}
-
 </style>
+
 </head>
+
 <body>
 
+<h1>📖 Tiny Moral Tales</h1>
+
+
 <!-- Name Popup -->
-<div id="namePopup" class="popup">
-  <div class="popup-box">
-    <h2>📖 Welcome to Tiny Moral Tales</h2>
-    <p>Enter Your Name</p>
-    <input type="text" id="userName" placeholder="Your Name">
-    <button onclick="saveName()">Start Story</button>
-  </div>
+
+<div class="popup" id="popup">
+
+<div class="box">
+
+<h2>Welcome 😊</h2>
+
+<p>Enter Your Name</p>
+
+<input id="name" placeholder="Your Name">
+
+<br>
+
+<button onclick="start()">Start Story</button>
+
+</div>
+
 </div>
 
 
-</body>
-<body>
-
-  <body>
-
-    <body>
-
-<!-- Name Popup -->
-<div id="namePopup" class="popup">
-  <div class="popup-box">
-    <h2>📖 Welcome to Tiny Moral Tales</h2>
-    <p>Enter Your Name</p>
-    <input type="text" id="userName" placeholder="Your Name">
-    <button onclick="saveName()">Start Story</button>
-  </div>
-</div>
-<script>
-  
-</body>
-</body>
-<div class="container">
-
-<h1>✨ Tiny AI Tales ✨</h1>
-
-<label>👶 Child Name</label>
-<input type="text" id="childName" placeholder="Enter Child Name">
-
-<label>🌍 Language</label>
-<select id="language">
-<option>English</option>
-<option>Odia</option>
-<option>Hindi</option>
-</select>
-
-<label>📚 Story Type</label>
-<select id="storyType">
-<option>Moral Story</option>
-<option>Adventure Story</option>
-<option>Animal Story</option>
-<option>Birthday Story</option>
-<option>Bedtime Story</option>
-</select>
-
-<button onclick="createStory()">
-✨ Generate Story
-</button>
-
-<div id="storyResult"></div>
-<button class="copyBtn" onclick="copyStory()">
-📋 Copy Story
-</button>
-
-<button class="downloadBtn" onclick="downloadStory()">
-📥 Download Story
-</button>
-
 <script>
 
-function createStory(){
+function start(){
 
-var name=document.getElementById("childName").value;
-var lang=document.getElementById("language").value;
-var type=document.getElementById("storyType").value;
+let name=document.getElementById("name").value;
 
 if(name==""){
-alert("Please enter child name");
-return;
+alert("Enter your name");
 }
-
-var story="";
-
-if(lang=="English"){
-
-story="🌈 Once upon a time, "+name+" was a kind and brave child. One magical day, "+name+" found a glowing rabbit in the forest. The rabbit smiled and said, 'Your kindness makes the world brighter.' From that day, "+name+" always helped everyone and lived happily ever after. ✨";
-
-}
-
-else if(lang=="Odia"){
-
-story="🌈 ଥରେ "+name+" ନାମର ଜଣେ ସାହସୀ ପିଲା ଥିଲା। ଦିନେ ସେ ଜଙ୍ଗଲରେ ଗୋଟିଏ ଯାଦୁଇ ଖରଗୋଶକୁ ଦେଖିଲା। ଖରଗୋଶଟି କହିଲା, 'ତୁମର ଭଲପାଇବା ସମସ୍ତଙ୍କୁ ଖୁସି ଦେଉଛି।' ସେହିଦିନଠାରୁ "+name+" ସମସ୍ତଙ୍କୁ ସାହାଯ୍ୟ କରି ଖୁସିରେ ରହିଲା। ✨";
-
-}
-
 else{
-
-story="🌈 एक बार "+name+" नाम का एक बहादुर बच्चा था। एक दिन उसे जंगल में एक जादुई खरगोश मिला। खरगोश ने कहा, 'तुम्हारी अच्छाई सबसे बड़ी ताकत है।' इसके बाद "+name+" हमेशा सबकी मदद करता रहा। ✨";
-
+document.getElementById("popup").style.display="none";
+alert("Welcome "+name+" 😊");
 }
-
-document.getElementById("storyResult").style.display="block";
-document.getElementById("storyResult").innerHTML=story;
-
-}
-  function copyStory(){
-
-var text=document.getElementById("storyResult").innerText;
-
-navigator.clipboard.writeText(text);
-
-alert("Story Copied Successfully!");
-
-}
-
-function downloadStory(){
-
-var text=document.getElementById("storyResult").innerText;
-
-if(text==""){
-alert("Generate a story first!");
-return;
-}
-
-var blob=new Blob([text],{type:"text/plain"});
-
-var link=document.createElement("a");
-
-link.href=URL.createObjectURL(blob);
-
-link.download="Tiny_AI_Story.txt";
-
-link.click();
 
 }
 
 </script>
 
-</div>
 
 </body>
-
 </html>

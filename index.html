@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiny AI Tales</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f5f8ff;
+margin:0;
+padding:20px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+background:#fff;
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+text-align:center;
+color:#6a1b9a;
+}
+
+p{
+font-weight:bold;
+margin-top:15px;
+}
+
+input,select{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+button{
+margin-top:20px;
+width:100%;
+padding:14px;
+background:#ff9800;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+}
+
+button:hover{
+background:#f57c00;
+}
+
+#storyResult{
+margin-top:20px;
+padding:15px;
+background:#eef8ff;
+border-radius:10px;
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>✨ Tiny AI Tales ✨</h1>
+
+<p>Child Name</p>
+<input type="text" id="childName" placeholder="Enter Child Name">
+
+<p>Select Language</p>
+<select id="language">
+<option>English</option>
+<option>Odia</option>
+<option>Hindi</option>
+</select>
+
+<p>Story Type</p>
+<select id="storyType">
+<option>Moral Story</option>
+<option>Adventure Story</option>
+<option>Animal Story</option>
+<option>Birthday Story</option>
+</select>
+
+<button onclick="createStory()">
+✨ Generate Story
+</button>
+
+<div id="storyResult"></div>
